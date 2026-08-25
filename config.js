@@ -9,6 +9,6 @@
    key in this file — that one bypasses everything.
    ===================================================================== */
 window.CONFIG = {
-  SUPABASE_URL: "https://YOUR-PROJECT.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR-ANON-KEY"
+  SUPABASE_URL: "https://aidigujqwgdmnlbjrkaq.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFpZGlndWpxd2dkbW5sYmpya2FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc2NjAzNTMsImV4cCI6MjEwMzIzNjM1M30.gIVL4Qqip0vepajP61EuzUlb68w6rDbTwCkQe1M7JMk"
 };
