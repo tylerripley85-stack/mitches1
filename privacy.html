@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — Mitch's Barbershop</title>
+<meta name="description" content="What Mitch's Barbershop does with your details when you book online or join the cut card.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/brand.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="Mitch's Barbershop" width="440" height="188"><i></i><span>Ramsgate</span></a>
+  <nav class="main" style="display:flex;margin-left:auto"><a href="index.html">Back to the site</a></nav>
+</div></header>
+
+<main class="wrap"><article class="legal">
+<p class="eyebrow">Privacy</p>
+<h1>What we do with your details</h1>
+<p class="updated">Last updated: <span data-updated>August 2026</span></p>
+
+<p>Plain English, because you should not need a solicitor to work out what happens to your phone number.</p>
+
+<h2>Who we are</h2>
+<p>Mitch's Barbershop, 18 Grange Road, Ramsgate, Kent CT11 9LR. We are the data controller for everything described here.
+Get in touch at <a href="#" data-shop-email>the shop</a> or pop in.</p>
+
+<h2>What we collect, and why</h2>
+<ul>
+  <li><b>When you book:</b> your name, mobile number, email address, and anything you type in the notes box.
+      We need these to hold the chair for you, to send your confirmation and reminder, and to ring you if something changes.</li>
+  <li><b>When you join the cut card:</b> the same details, plus a running count of your stamps.
+      That is the only way the card can work.</li>
+  <li><b>Basic technical information</b> that any website receives — your browser type and IP address — handled by our
+      hosting provider for security and to stop bots filling up the diary.</li>
+</ul>
+<p>We do not use tracking cookies, we do not run advertising pixels, and we do not profile you.</p>
+
+<h2>What we do not collect</h2>
+<p>No card or payment details ever touch this website. You pay in the shop.</p>
+
+<h2>Why we are allowed to hold it</h2>
+<ul>
+  <li><b>Your booking and its confirmation:</b> we need it to provide the service you asked for (contract).</li>
+  <li><b>The cut card and any offers:</b> only because you ticked the box (consent). You can withdraw that at any time
+      from the link at the bottom of any email we send, or from your own booking page.</li>
+  <li><b>Keeping records of cuts done:</b> running the shop properly and keeping our books straight (legitimate interests).</li>
+</ul>
+
+<h2>Who else sees it</h2>
+<p>Only the companies that run the plumbing, and only so they can do their job:</p>
+<ul>
+  <li><b>Supabase</b> — stores the diary and the card. Data held in the EU.</li>
+  <li><b>Resend</b> — sends your confirmation, reminder and card emails.</li>
+  <li><b>Vercel</b> — serves this website.</li>
+</ul>
+<p>We do not sell your details, we do not swap them with other businesses, and we do not send them anywhere else.</p>
+
+<h2>How long we keep it</h2>
+<ul>
+  <li>Booking history: up to two years, so we can see who is a regular.</li>
+  <li>Cut card and mailing list: until you ask us to remove you, or after three years with no cuts.</li>
+  <li>Sent emails: 60 days, then deleted automatically.</li>
+</ul>
+
+<h2>What you can ask us to do</h2>
+<p>Under UK GDPR you can ask us to show you what we hold, correct it, delete it, or stop emailing you. Just ask —
+in the shop, on the phone, or by email — and we will sort it within a month, free of charge.
+Your own booking page (the link in your confirmation email) already lets you cancel bookings and turn off offer emails yourself.</p>
+<p>If you think we have got it wrong and we cannot put it right between us, you can complain to the
+<a href="https://ico.org.uk" target="_blank" rel="noopener">Information Commissioner's Office</a>.</p>
+
+<h2>Keeping it safe</h2>
+<p>Customer details are held behind the database's own security rules — they are never included in the public web pages,
+and the website's public key cannot read them. Only signed-in staff accounts can see the diary and the card list.</p>
+
+<p style="margin-top:34px"><a class="btn ghost" href="index.html">Back to the site</a></p>
+</article></main>
+
+<script src="assets/config.js"></script>
+<script src="assets/api.js"></script>
+<script>
+(function () {
+  if (!window.API || !API.configured()) return;
+  API.rpc("public_config").then(function (c) {
+    var e = c && c.shop && c.shop.email;
+    document.querySelectorAll("[data-shop-email]").forEach(function (a) {
+      if (e) { a.href = "mailto:" + e; a.textContent = e; }
+    });
+  }, function () {});
+})();
+</script>
+</body>
+</html>

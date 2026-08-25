@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking terms — Mitch's Barbershop</title>
+<meta name="description" content="How booking, cancelling and the cut card work at Mitch's Barbershop.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/brand.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="Mitch's Barbershop" width="440" height="188"><i></i><span>Ramsgate</span></a>
+  <nav class="main" style="display:flex;margin-left:auto"><a href="index.html">Back to the site</a></nav>
+</div></header>
+
+<main class="wrap"><article class="legal">
+<p class="eyebrow">Booking terms</p>
+<h1>How booking here works</h1>
+<p class="updated">Last updated: August 2026</p>
+
+<h2>Booking a chair</h2>
+<p>Picking a time online holds that slot for you with that barber. Nothing is charged online — you pay in the shop,
+cash or card, at the price shown when you booked.</p>
+
+<h2>Turning up</h2>
+<p>Get there a couple of minutes early. If you are more than ten minutes late we will do our best, but we may have to
+shorten the cut or move you to the next free slot so we do not hold up everybody behind you.</p>
+
+<h2>Changing or cancelling</h2>
+<p>Use the link in your confirmation email — it lets you move or cancel the booking yourself, up to
+<span data-cancel-hours>2</span> hours before. Inside that window, give the shop a ring and we will sort it.
+No charge either way. We just ask that you tell us, so somebody else can have the slot.</p>
+
+<h2>If we have to cancel</h2>
+<p>Illness and emergencies happen. If we have to move you we will ring or email as early as we can and get you back in
+at the first time that suits.</p>
+
+<h2>The cut card</h2>
+<ul>
+  <li>Free to join, no card to carry.</li>
+  <li>Every <b>paid</b> cut gets a stamp when your barber marks it done.</li>
+  <li><span data-stamps>Eight</span> stamps and your next cut is on the house. The card then resets and starts again.</li>
+  <li>Free apprentice cuts do not earn a stamp — they are already free.</li>
+  <li>Stamps belong to the person, not the card number, and cannot be sold, swapped or exchanged for cash.</li>
+  <li>The card is a goodwill thing. We can change how it works or wind it up, but any stamps you have already earned
+      will be honoured.</li>
+</ul>
+
+<h2>Free cuts with the apprentices</h2>
+<p>Ronnie, Owen and Lawrence are training under Mitch, which is why those cuts cost nothing. Mitch checks the work.
+They take the same care and the same time as any other cut — the difference is who is holding the clippers.</p>
+
+<h2>Under 16s</h2>
+<p>Anyone under 16 needs a parent or guardian with them. Please book the "Kids cut 12 and under" slot for younger ones
+so we set aside the right amount of time.</p>
+
+<h2>Common sense</h2>
+<p>We reserve the right to refuse service to anyone abusive to the team or to other customers. That is the only rule
+we are strict about.</p>
+
+<h2>Getting hold of us</h2>
+<p>Mitch's Barbershop, 18 Grange Road, Ramsgate, Kent CT11 9LR.
+<span data-shop-contact></span></p>
+
+<p style="margin-top:34px"><a class="btn ghost" href="index.html">Back to the site</a>
+<a class="btn" href="index.html#/book" style="margin-left:8px">Book a chair</a></p>
+</article></main>
+
+<script src="assets/config.js"></script>
+<script src="assets/api.js"></script>
+<script>
+(function () {
+  if (!window.API || !API.configured()) return;
+  var words = ["zero","one","two","three","four","five","six","seven","eight","nine","ten",
+               "eleven","twelve"];
+  API.rpc("public_config").then(function (c) {
+    var s = c && c.shop; if (!s) return;
+    document.querySelectorAll("[data-cancel-hours]").forEach(function (n) { n.textContent = s.cancel_hours; });
+    document.querySelectorAll("[data-stamps]").forEach(function (n) {
+      var w = words[s.stamps_required] || String(s.stamps_required);
+      n.textContent = w.charAt(0).toUpperCase() + w.slice(1);
+    });
+    document.querySelectorAll("[data-shop-contact]").forEach(function (n) {
+      var bits = [];
+      if (s.phone) bits.push(s.phone);
+      if (s.email) bits.push(s.email);
+      n.textContent = bits.length ? bits.join(" · ") : "";
+    });
+  }, function () {});
+})();
+</script>
+</body>
+</html>
